@@ -27,3 +27,6 @@ Pallos.iml
 gradle
 /groovy-example/build
 /elaticsearch-redis/build
+/Pallos.iml
+/groovy-example/groovy-example.iml
+/elaticsearch-redis/elaticsearch-redis.iml
