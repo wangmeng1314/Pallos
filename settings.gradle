@@ -1,4 +1,5 @@
 rootProject.name = 'Pallos'
 include 'elaticsearch-redis'
 include 'groovy-example'
+include 'web-example'
 

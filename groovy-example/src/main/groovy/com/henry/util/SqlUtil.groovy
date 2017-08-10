@@ -18,6 +18,7 @@ class SqlUtil {
             password: '',
             driver  : '',
     ]
+    
 
     static prePareTargetConnection(String url, String userName, String passWord) {
         connectionMap.url = url
