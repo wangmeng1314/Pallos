@@ -12,6 +12,8 @@ class HttpUtil {
     def static rest = new RESTClient()
     def static paramsGetMap = [uri: '', contentType: '']
     def static paramsPostMap = [uri: '', contentType: '', body: '']
+    static String name
+
     /**
      * <p>发起GET请求</p>
      * @param uri
@@ -39,12 +41,6 @@ class HttpUtil {
         paramsPostMap.uri = uri
         paramsPostMap.body = body
         def post = rest.post(uri: uri, contentType: contentType, body: body)
-        HttpResponseDecorator properties = post.getProperties('')
-        return properties
-    }
-
-
-    public static void main(String[] args) {
-        def json = getJson('http://www.baidu.com/', ContentType.HTML)
+        return post
     }
 }

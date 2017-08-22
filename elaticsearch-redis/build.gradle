@@ -16,5 +16,6 @@ dependencies {
     compile group: 'org.elasticsearch', name: 'elasticsearch', version: '2.4.0'
     compile group: 'redis.clients', name: 'jedis', version: '2.7.2'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.6'
-    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    //slf4j项目提供
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.2'
 }

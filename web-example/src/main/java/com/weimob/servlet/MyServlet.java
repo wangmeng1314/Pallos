@@ -14,6 +14,11 @@ import java.io.IOException;
 public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        /*寻址*/
+        ProxyMapper proxyMapper = new ProxyMapper();
+        String contextPath = request.getContextPath();
+        StringBuffer requestURI = request.getRequestURL();
+        String servletPath = request.getServletPath();
         response.getWriter().print("Hello, World!");
     }
 

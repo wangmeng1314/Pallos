@@ -7,7 +7,7 @@ package com.henry.util;
  */
 
 import lombok.Setter;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -15,11 +15,10 @@ import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 public class RedisClient {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(RedisClient.class);
     @Setter
     JedisPool jedisPool;
-    static Logger log = Logger.getLogger(RedisClient.class);
     private static final int EXPIRE_SECONDS = 3600;
     private static final Charset UTF_8 = Charset.forName("UTF-8");
 

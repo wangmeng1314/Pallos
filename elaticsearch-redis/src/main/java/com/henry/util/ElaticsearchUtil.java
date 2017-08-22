@@ -1,5 +1,6 @@
 package com.henry.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.count.CountResponse;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
@@ -27,6 +28,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * ES 连接demo
  */
+@Slf4j
 public class ElaticsearchUtil {
     public static final String CLUSTER_NAME = "my-application"; //实例名称
     private static final String IP = "XXX";
@@ -212,6 +214,61 @@ public class ElaticsearchUtil {
     /**
      * 按照传入的fieldName范围查询
      * 需要别的查询方式可以继续构建
+     * <?xml version="1.0" encoding="UTF-8"?>
+     * <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+     * <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+     * <!-- [控制台STDOUT] -->
+     * <appender name="STOUT-APPENDER" class="org.apache.log4j.ConsoleAppender">
+     * <param name="encoding" value="UTF-8"/>
+     * <param name="target" value="System.out"/>
+     * <layout class="org.apache.log4j.PatternLayout">
+     * <param name="ConversionPattern" value="%d - %p [%c:%L] - &lt;%m&gt;%n"/>
+     * </layout>
+     * </appender>
+     * <p>
+     * <!-- [公共Appender] -->
+     * <appender name="FILE-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+     * <param name="File" value="/data/applogs/mengdian-freight-server/freight-service.log"/>
+     * <param name="Append" value="true"/>
+     * <param name="encoding" value="UTF-8"/>
+     * <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+     * <layout class="org.apache.log4j.PatternLayout">
+     * <param name="ConversionPattern" value="%d - %p [%c:%L] - &lt;%m&gt;%n"/>
+     * </layout>
+     * </appender>
+     * <p>
+     * <!-- [Dao Appender] -->
+     * <appender name="DAO-FILE-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+     * <param name="File" value="/data/applogs/mengdian-freight-server/freight-dao.log"/>
+     * <param name="Append" value="true"/>
+     * <param name="encoding" value="UTF-8"/>
+     * <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+     * <layout class="org.apache.log4j.PatternLayout">
+     * <param name="ConversionPattern" value="%d - %p [%c:%L] - &lt;%m&gt;%n"/>
+     * </layout>
+     * </appender>
+     * <p>
+     * <logger name="com.weimob.mengdian.freight" additivity="false">
+     * <level value="debug"/>
+     * <appender-ref ref="STOUT-APPENDER"/>
+     * </logger>
+     * <p>
+     * <logger name="com.weimob.mengdian.operation" additivity="false">
+     * <level value="debug"/>
+     * <appender-ref ref="STOUT-APPENDER"/>
+     * </logger>
+     * <p>
+     * <logger name="com.weimob.mengdian.med" additivity="false">
+     * <level value="debug"/>
+     * <appender-ref ref="STOUT-APPENDER"/>
+     * </logger>
+     * <p>
+     * <!-- Root Logger -->
+     * <root>
+     * <priority value="error"/>
+     * <appender-ref ref="STOUT-APPENDER"/>
+     * </root>
+     * </log4j:configuration>
      *
      * @return
      */
